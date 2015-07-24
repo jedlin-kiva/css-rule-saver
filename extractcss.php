@@ -18,8 +18,7 @@
 	$results = $crs->saveRules($scope_prefix);
 
 	// write out file of extracted css
-	file_put_contents($outfile, $results);
-	$outfile = fopen($output_css_file,"w");
+	file_put_contents($output_css_file, $results);
 
 	print "Css extract done to $outfile\n";
 	exit(0);
