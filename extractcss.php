@@ -3,7 +3,7 @@
 	require "css-rule-saver.php";
 
 	$input_html_file = $argv[1] ? $argv[1] : 'public/patterns/03-templates-01-frame/03-templates-01-frame.html';
-	$input_css_file = $argv[2] ? $argv[12] : 'public/css/styles.css';
+	$input_css_file = $argv[2] ? $argv[2] : 'public/css/styles.css';
 	$output_css_file = $argv[3] ? $argv[3] : 'kiva_nav.css';
 	$scope_prefix = $argv[4] ? $argv[4] : '.kiva_nav ';
 
