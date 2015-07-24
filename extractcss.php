@@ -20,5 +20,5 @@
 	// write out file of extracted css
 	file_put_contents($output_css_file, $results);
 
-	print "Css extract done to $outfile\n";
+	print "Css extract done to $output_css_file\n";
 	exit(0);
