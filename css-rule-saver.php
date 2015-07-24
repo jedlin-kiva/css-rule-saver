@@ -147,7 +147,7 @@ class cssRuleSaver {
 	*
 	* @return {String}       the rules that match between the given CSS file and HTML file
 	*/
-	public function saveRules() {
+	public function saveRules($scope_prefix = "") {
 		
 		// make sure data exists to compare
 		if (($this->htmlData == "") || (count($this->ruleSets) == 0)) {
@@ -160,7 +160,7 @@ class cssRuleSaver {
 		// iterate over the default rule sets and test them against the given mark-up
 		$statements = "";
 		foreach ($this->ruleSets as $selector => $declarationBlock) {
-			$statements .= $this->buildRuleSet($selector,$declarationBlock);
+			$statements .= $this->buildRuleSet($selector,$declarationBlock,"", $scope_prefix);
 		}
 		
 		// iterate over the at-rules
@@ -169,7 +169,7 @@ class cssRuleSaver {
 			// iterate over the rule sets in the at-rules and test them against the given mark-up
 			$atRuleSets = "";
 			foreach ($ruleSets as $selector => $declarationBlock) {
-				$atRuleSets .= $this->buildRuleSet($selector,$declarationBlock,"\t");
+				$atRuleSets .= $this->buildRuleSet($selector,$declarationBlock,"\t", $scope_prefix);
 			}
 			
 			if ($atRuleSets != "") {
@@ -205,8 +205,9 @@ class cssRuleSaver {
 	*
 	* @return {String}       if the selector(s) matched return the entire rule set with matches
 	*/
-	protected function buildRuleSet($selector,$declarationBlock,$indent = "") {
-		
+	protected function buildRuleSet($selector,$declarationBlock,$indent = "", $scope_prefix = "") {
+		$scope_prefix = strlen($scope_prefix) ? trim($scope_prefix) . " " : "";
+
 		// trap the selectors that are found
 		$foundSelectors = array();
 		
@@ -231,7 +232,7 @@ class cssRuleSaver {
 			
 			// match the selector against the DOM. if result is found save the original selector format
 			if (count($this->dom->select($selector)) > 0) {
-				$foundSelectors[] = $selectorOrig;
+				$foundSelectors[] = $scope_prefix . $selectorOrig;
 			}
 		}
 		
