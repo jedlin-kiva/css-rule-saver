@@ -1,0 +1,23 @@
+{
+  "name": "kv-css-rule-saver",
+  "version": "1.0.1",
+  "homepage": "https://github.com/kiva/css-rule-saver",
+  "authors": [
+    "Kiva.org"
+  ],
+  "description": "A fork of Dave Olsen's css-rule-saver for extracting css subsets",
+  "main": "extractcss.php",
+  "keywords": [
+    "php",
+    "css",
+    "subset"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
