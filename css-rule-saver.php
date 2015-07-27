@@ -9,7 +9,7 @@
  */
 
 // load php-selector
-require __DIR__."/lib/php-selector/selector.php";
+require __DIR__."/lib/php-selector/selector.inc";
 
 class cssRuleSaver {
 	
